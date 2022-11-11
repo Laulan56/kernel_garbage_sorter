@@ -19,7 +19,8 @@ DIFFPATHS=(
     "drivers/android/"
     "drivers/base/"
     "drivers/block/"
-    "drivers/media/platform/msm/"
+    "drivers/media/platform/"
+    "drivers/media/platform/msm"
     "drivers/char/"
     "drivers/clk/"
     "drivers/cpufreq/"
@@ -31,12 +32,15 @@ DIFFPATHS=(
     "drivers/input/"
     "drivers/leds/"
     "drivers/misc/"
+    "drivers/misc/mediatek/"
     "drivers/mmc/"
     "drivers/nfc/"
     "drivers/power/"
+    "drivers/regular/"
     "drivers/scsi/"
     "drivers/soc/"
     "drivers/thermal/"
+    "drivers/tee/"
     "drivers/usb/"
     "drivers/video/"
     "drivers/"
@@ -61,8 +65,8 @@ DIFFPATHS=(
 )
 for ELEMENT in ${DIFFPATHS[@]}; do
     [[ -d $ELEMENT ]] && git add $ELEMENT > /dev/null 2>&1
-    git -c "user.name=Laulan56" -c "user.email=stevexian56@gmail.com" commit -sm "$ELEMENT: Import OEM changes" > /dev/null 2>&1
+    git commit -sm "$ELEMENT: Import OEM changes" > /dev/null 2>&1
 done
 # Remaining OEM modifications
 git add --all > /dev/null 2>&1
-git -c "user.name=Laulan56" -c "user.email=stevexian56@gmail.com" commit -sm "Import remaining OEM modifications" > /dev/null 2>&1
+git commit -sm "Import remaining OEM modifications" > /dev/null 2>&1
